@@ -40,12 +40,8 @@ import java.util.List;
  */
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String FIREBASE_URL = new String("https://werkbon.firebaseio.com/");
-
+    public static final String USER_ID       = "";
+    public static final String FIREBASE_URL = new String("https://werkbon.firebaseio.com/");
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -286,6 +282,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 @Override
                 public void onAuthenticated(AuthData authData) {
                     System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+                    workOrderList.putExtra(USER_ID, authData.getUid());
                     startActivity(workOrderList);
                 }
 
