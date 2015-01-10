@@ -281,7 +281,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             ref.authWithPassword(mEmail, mPassword, new Firebase.AuthResultHandler() {
                 @Override
                 public void onAuthenticated(AuthData authData) {
-                    System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
                     workOrderList.putExtra(USER_ID, authData.getUid());
                     startActivity(workOrderList);
                 }

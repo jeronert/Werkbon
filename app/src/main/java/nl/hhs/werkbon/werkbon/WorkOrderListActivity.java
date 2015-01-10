@@ -21,13 +21,14 @@ import com.firebase.client.ValueEventListener;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class WorkOrderListActivity extends ActionBarActivity {
 
     private static String userID = "";
     private static Firebase fireBase;
-    ArrayList<String> workOrders = new ArrayList<String>();
+    ArrayList<WorkOrder> workOrders = new ArrayList<WorkOrder>();
     ArrayAdapter<String> adapter;
     ListView listView;
     EditText inputSearch;
@@ -39,12 +40,13 @@ public class WorkOrderListActivity extends ActionBarActivity {
         Intent intent = getIntent();
 
         this.userID   = intent.getStringExtra(LoginActivity.USER_ID);
-        this.fireBase = new Firebase(LoginActivity.FIREBASE_URL);
+        this.fireBase = new Firebase(LoginActivity.FIREBASE_URL + "users/" + this.userID + "/workorders");
+
+        System.out.println(LoginActivity.FIREBASE_URL + "users/" + this.userID + "/workorders");
 
         setContentView(R.layout.activity_work_order_list);
 
         getWorkOrders();
-        fillListView();
     }
 
     public void getWorkOrders() {
@@ -57,11 +59,14 @@ public class WorkOrderListActivity extends ActionBarActivity {
 
                 // Check to see if this snapshot has any data
                 if(snapshot.exists() && snapshot.hasChildren()){
-                    for(DataSnapshot workOrder : snapshot.getChildren()){
-                        String title = workOrder.getValue().toString();
-                        workOrders.add(title);
+                    WorkOrder[] wOrder = snapshot.getValue(WorkOrder[].class);
+
+                    for(WorkOrder w : wOrder){
+                        workOrders.add(w);
                     }
                 }
+
+                fillListView();
             }
 
             @Override public void onCancelled(FirebaseError error) { }
@@ -77,9 +82,8 @@ public class WorkOrderListActivity extends ActionBarActivity {
 
         // FireBase Data
         int i = 0;
-        for(String s : workOrders){
-            values[i] = s;
-
+        for(WorkOrder w : workOrders){
+            values[i] = w.getCustomer().getInitials() + " " + w.getCustomer().getLastName() + "\n" + w.getCustomer().getAddress() + " " + w.getCustomer().getHouseNumber() + " " + w.getCustomer().getZipcode() + " " + w.getCustomer().getCity();
             i++;
         }
 
