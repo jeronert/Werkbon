@@ -1,4 +1,4 @@
-package nl.hhs.werkbon.werkbon;
+package nl.hhs.werkbon.werkbon.Models;
 
 import java.util.ArrayList;
 

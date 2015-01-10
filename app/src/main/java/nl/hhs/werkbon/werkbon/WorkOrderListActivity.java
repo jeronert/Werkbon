@@ -19,9 +19,9 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.List;
+
+import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 
 public class WorkOrderListActivity extends ActionBarActivity {
@@ -29,7 +29,7 @@ public class WorkOrderListActivity extends ActionBarActivity {
     private static String userID = "";
     private static Firebase fireBase;
     ArrayList<WorkOrder> workOrders = new ArrayList<WorkOrder>();
-    ArrayAdapter<String> adapter;
+    WorkOrderAdapter adapter;
     ListView listView;
     EditText inputSearch;
 
@@ -81,19 +81,18 @@ public class WorkOrderListActivity extends ActionBarActivity {
         String[] values = new String[workOrders.size()];
 
         // FireBase Data
-        int i = 0;
-        for(WorkOrder w : workOrders){
-            values[i] = w.getCustomer().getInitials() + " " + w.getCustomer().getLastName() + "\n" + w.getCustomer().getAddress() + " " + w.getCustomer().getHouseNumber() + " " + w.getCustomer().getZipcode() + " " + w.getCustomer().getCity();
-            i++;
-        }
+//        int i = 0;
+//        for(WorkOrder w : workOrders){
+//            values[i] = w.getCustomer().getInitials() + " " + w.getCustomer().getLastName() + "\n" + w.getCustomer().getAddress() + " " + w.getCustomer().getHouseNumber() + " " + w.getCustomer().getZipcode() + " " + w.getCustomer().getCity();
+//            i++;
+//        }
 
         // Define a new Adapter
         // First parameter - Context
         // Second parameter - Layout for the row
         // Third parameter - ID of the TextView to which the data is written
         // Forth - the Array of data
-        this.adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, android.R.id.text1, values);
+        this.adapter = new WorkOrderAdapter(this, workOrders);
 
         // Assign adapter to ListView
         listView.setAdapter(adapter);
@@ -112,9 +111,11 @@ public class WorkOrderListActivity extends ActionBarActivity {
                 String  itemValue    = (String) listView.getItemAtPosition(position);
 
                 // Show Alert
-                Toast.makeText(getApplicationContext(),
-                        "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
-                        .show();
+//                Toast.makeText(getApplicationContext(),
+//                        "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
+//                        .show();
+
+//                Intent workOrderList = new Intent(this, WorkOrderListActivity.class);
 
             }
 

@@ -1,6 +1,4 @@
-package nl.hhs.werkbon.werkbon;
-
-import android.provider.ContactsContract;
+package nl.hhs.werkbon.werkbon.Models;
 
 import java.util.ArrayList;
 

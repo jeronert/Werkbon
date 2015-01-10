@@ -1,4 +1,4 @@
-package nl.hhs.werkbon.werkbon;
+package nl.hhs.werkbon.werkbon.Models;
 
 /**
  * Created by jeroner on 10/01/15.

@@ -1,20 +1,22 @@
-package nl.hhs.werkbon.werkbon;
+package nl.hhs.werkbon.werkbon.Models;
 
 /**
  * Created by jeroner on 10/01/15.
  */
-public class Converter {
+public class ExtraWork {
 
     private String type;
     private String quantity;
+    private String description;
 
     // Required default constructor for Firebase object mapping
     @SuppressWarnings("unused")
-    private Converter() { }
+    private ExtraWork() { }
 
-    public Converter(String type, String quantity) {
+    public ExtraWork(String type, String quantity, String description) {
         this.type = type;
         this.quantity = quantity;
+        this.description = description;
     }
 
     public String getType() {
@@ -23,5 +25,9 @@ public class Converter {
 
     public String getQuantity() {
         return quantity;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

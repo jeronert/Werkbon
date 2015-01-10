@@ -1,4 +1,4 @@
-package nl.hhs.werkbon.werkbon;
+package nl.hhs.werkbon.werkbon.Models;
 
 import java.util.ArrayList;
 
@@ -43,6 +43,10 @@ public class WorkOrder {
 
     public ArrayList<ExtraWork> getExtraWork() {
         return this.extraWork;
+    }
+
+    public String toString(){
+        return this.getCustomer().getInitials() + " " + this.getCustomer().getLastName() + " " + this.getCustomer().getAddress() + " " + this.getCustomer().getHouseNumber() + " " + this.getCustomer().getZipcode() + " " + this.getCustomer().getCity();
     }
 
 }
