@@ -55,7 +55,7 @@ public class WorkOrderListActivity extends ActionBarActivity {
 
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                System.out.println(snapshot.getValue());
+                workOrders.clear();
 
                 // Check to see if this snapshot has any data
                 if(snapshot.exists() && snapshot.hasChildren()){
@@ -108,12 +108,12 @@ public class WorkOrderListActivity extends ActionBarActivity {
                 int itemPosition     = position;
 
                 // ListView Clicked item value
-                String  itemValue    = (String) listView.getItemAtPosition(position);
+                WorkOrder workOrder  = (WorkOrder) listView.getItemAtPosition(position);
 
                 // Show Alert
-//                Toast.makeText(getApplicationContext(),
-//                        "Position :" + itemPosition + "  ListItem : " + itemValue, Toast.LENGTH_LONG)
-//                        .show();
+                Toast.makeText(getApplicationContext(),
+                        "Position :" + itemPosition + "  ListItem : " + workOrder.getCustomer().getLastName(), Toast.LENGTH_LONG)
+                        .show();
 
 //                Intent workOrderList = new Intent(this, WorkOrderListActivity.class);
 
