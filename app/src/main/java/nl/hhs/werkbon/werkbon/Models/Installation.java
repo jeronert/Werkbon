@@ -1,11 +1,12 @@
 package nl.hhs.werkbon.werkbon.Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by jeroner on 10/01/15.
  */
-public class Installation {
+public class Installation implements Serializable {
 
     private String capacity;
     private ArrayList<Converter> converters;

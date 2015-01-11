@@ -1,17 +1,32 @@
 package nl.hhs.werkbon.werkbon;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 
-public class WorkOrderDetail extends ActionBarActivity {
+public class WorkOrderDetailActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_order_detail);
+
+        // Retrieve workOrder from WorkOrderList activity
+        WorkOrder workOrder = (WorkOrder) getIntent().getSerializableExtra("WorkOrder");
+
+        System.out.println(workOrder.toString());
+    }
+
+    public void openWorkOrderList(View view){
+        Intent workOrderList = new Intent(this, WorkOrderListActivity.class);
+
+        startActivity(workOrderList);
     }
 
 

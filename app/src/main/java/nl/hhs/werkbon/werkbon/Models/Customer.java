@@ -1,11 +1,12 @@
 package nl.hhs.werkbon.werkbon.Models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by jeroner on 10/01/15.
  */
-public class Customer {
+public class Customer implements Serializable {
 
     private String sex;
     private String initials;

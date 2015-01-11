@@ -74,6 +74,13 @@ public class WorkOrderListActivity extends ActionBarActivity {
         });
     }
 
+    protected void openWorkOrderDetail(WorkOrder workOrder) {
+        Intent workOrderDetail = new Intent(this, WorkOrderDetailActivity.class);
+
+        workOrderDetail.putExtra("WorkOrder", workOrder);
+        startActivity(workOrderDetail);
+    }
+
     public void fillListView() {
         listView = (ListView) findViewById(R.id.listView);
         inputSearch = (EditText) findViewById(R.id.inputSearch);
@@ -115,7 +122,8 @@ public class WorkOrderListActivity extends ActionBarActivity {
                         "Position :" + itemPosition + "  ListItem : " + workOrder.getCustomer().getLastName(), Toast.LENGTH_LONG)
                         .show();
 
-//                Intent workOrderList = new Intent(this, WorkOrderListActivity.class);
+                // Open detail activity
+                openWorkOrderDetail(workOrder);
 
             }
 

@@ -1,9 +1,11 @@
 package nl.hhs.werkbon.werkbon.Models;
 
+import java.io.Serializable;
+
 /**
  * Created by jeroner on 10/01/15.
  */
-public class Converter {
+public class Converter implements Serializable {
 
     private String type;
     private String quantity;

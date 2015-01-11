@@ -268,7 +268,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         private boolean isAuthenticated = false;
 
         UserLoginTask(String email, String password) {
-            mEmail = email;
+            mEmail    = email;
             mPassword = password;
         }
 
@@ -288,7 +288,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 @Override
                 public void onAuthenticationError(FirebaseError firebaseError) {
                     // there was an error
-                    System.out.println("ERRORRRR");
+                    System.out.println(firebaseError);
                     mPasswordView.setError(getString(R.string.error_incorrect_password));
                     mPasswordView.requestFocus();
 

@@ -109,7 +109,8 @@ public class WorkOrderAdapter extends BaseAdapter implements Filterable {
 
                 for (T object : sourceObjects) {
                     // the filtering itself:
-                    if (object.toString().toLowerCase().contains(filterSeq))
+                    WorkOrder workOrder = (WorkOrder) object;
+                    if (workOrder.toStringForFilter().toLowerCase().contains(filterSeq))
                         filter.add(object);
 
                     System.out.println(object.toString());

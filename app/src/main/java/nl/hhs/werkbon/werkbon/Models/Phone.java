@@ -1,9 +1,11 @@
 package nl.hhs.werkbon.werkbon.Models;
 
+import java.io.Serializable;
+
 /**
  * Created by jeroner on 10/01/15.
  */
-public class Phone {
+public class Phone implements Serializable {
 
     private String number;
 

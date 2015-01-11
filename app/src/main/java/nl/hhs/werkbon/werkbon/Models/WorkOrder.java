@@ -1,11 +1,15 @@
 package nl.hhs.werkbon.werkbon.Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by jeroner on 10/01/15.
  */
-public class WorkOrder {
+public class WorkOrder implements Serializable {
 
     private int id;
     private Customer customer;
@@ -45,7 +49,7 @@ public class WorkOrder {
         return this.extraWork;
     }
 
-    public String toString(){
+    public String toStringForFilter(){
         return this.getCustomer().getInitials() + " " + this.getCustomer().getLastName() + " " + this.getCustomer().getAddress() + " " + this.getCustomer().getHouseNumber() + " " + this.getCustomer().getZipcode() + " " + this.getCustomer().getCity();
     }
 
