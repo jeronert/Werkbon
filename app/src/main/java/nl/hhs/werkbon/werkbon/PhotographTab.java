@@ -13,12 +13,12 @@ import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 /**
  * Created by jeroner on 12/01/15.
  */
-public class ExtraWorkTab extends Fragment {
+public class PhotographTab extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View extraWork      = inflater.inflate(R.layout.extra_work_frag, container, false);
+        View extraWork      = inflater.inflate(R.layout.photograph_frag, container, false);
         WorkOrder workOrder = (WorkOrder) getActivity().getIntent().getSerializableExtra("WorkOrder");
 
 //        ((TextView) extraWork.findViewById(R.id.capacityText)).setText(workOrder.getExtraWork().);

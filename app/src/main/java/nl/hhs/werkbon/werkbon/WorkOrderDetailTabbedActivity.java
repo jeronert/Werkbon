@@ -116,6 +116,9 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
                 case 2:
                     fragment = new ExtraWorkTab();
                     break;
+                case 3:
+                    fragment = new PhotographTab();
+                    break;
                 default:
                     fragment = new CustomerTab();
 

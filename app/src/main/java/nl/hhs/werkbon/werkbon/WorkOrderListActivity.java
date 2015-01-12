@@ -57,6 +57,8 @@ public class WorkOrderListActivity extends ActionBarActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 workOrders.clear();
 
+                System.out.println("data changes");
+
                 // Check to see if this snapshot has any data
                 if(snapshot.exists() && snapshot.hasChildren()){
                     WorkOrder[] wOrder = snapshot.getValue(WorkOrder[].class);
