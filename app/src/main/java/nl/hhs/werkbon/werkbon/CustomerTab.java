@@ -21,8 +21,17 @@ public class CustomerTab extends Fragment {
         View customer = inflater.inflate(R.layout.customer_frag, container, false);
         WorkOrder workOrder = (WorkOrder) getActivity().getIntent().getSerializableExtra("WorkOrder");
 
-        ((TextView) customer.findViewById(R.id.textView)).setText("Customer");
-        ((TextView) customer.findViewById(R.id.textView3)).setText(workOrder.toStringForFilter());
+        ((TextView) customer.findViewById(R.id.sexText)).setText(workOrder.getCustomer().getSex());
+        ((TextView) customer.findViewById(R.id.prefixText)).setText(workOrder.getCustomer().getInitials());
+        ((TextView) customer.findViewById(R.id.lastnameText)).setText(workOrder.getCustomer().getLastName());
+        ((TextView) customer.findViewById(R.id.phoneText)).setText(workOrder.getCustomer().getPhones().get(0).getNumber());
+
+        // Addresss
+        ((TextView) customer.findViewById(R.id.streetText)).setText(workOrder.getCustomer().getAddress());
+        ((TextView) customer.findViewById(R.id.housenumberText)).setText(workOrder.getCustomer().getHouseNumber());
+        ((TextView) customer.findViewById(R.id.zipcodeText)).setText(workOrder.getCustomer().getZipcode());
+        ((TextView) customer.findViewById(R.id.cityText)).setText(workOrder.getCustomer().getCity());
+        ((TextView) customer.findViewById(R.id.emailText)).setText(workOrder.getCustomer().getEmail());
 
         return customer;
     }

@@ -17,7 +17,7 @@ public class ExtraWorkTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View extraWork = inflater.inflate(R.layout.extra_work_frag, container, false);
-        ((TextView) extraWork.findViewById(R.id.textView)).setText("Extra Work");
+//        ((TextView) extraWork.findViewById(R.id.textView)).setText("Extra Work");
 
         return extraWork;
     }

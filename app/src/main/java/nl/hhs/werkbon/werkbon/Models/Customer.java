@@ -13,7 +13,7 @@ public class Customer implements Serializable {
     private String middleName;
     private String lastName;
     private String address;
-    private int houseNumber;
+    private String houseNumber;
     private String houseNumberExt;
     private String zipcode;
     private String city;
@@ -24,7 +24,7 @@ public class Customer implements Serializable {
     @SuppressWarnings("unused")
     private Customer() { }
 
-    public Customer(String sex, String initials, String middleName, String lastName, String address, int houseNumber, String houseNumberExtext, String zipcode, String city, ArrayList<Phone> phones, String email) {
+    public Customer(String sex, String initials, String middleName, String lastName, String address, String houseNumber, String houseNumberExtext, String zipcode, String city, ArrayList<Phone> phones, String email) {
         this.sex = sex;
         this.initials = initials;
         this.middleName = middleName;
@@ -58,7 +58,7 @@ public class Customer implements Serializable {
         return address;
     }
 
-    public int getHouseNumber() {
+    public String getHouseNumber() {
         return houseNumber;
     }
 

@@ -17,7 +17,7 @@ public class SystemTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View system = inflater.inflate(R.layout.extra_work_frag, container, false);
-        ((TextView) system.findViewById(R.id.textView)).setText("Systeemgegevens");
+//        ((TextView) system.findViewById(R.id.textView)).setText("Systeemgegevens");
 
         return system;
     }
