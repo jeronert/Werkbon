@@ -26,6 +26,10 @@
             android:name=".WorkOrderDetailActivity"
             android:label="@string/title_activity_work_order_detail" >
         </activity>
+        <activity
+            android:name=".WorkOrderDetailTabbedActivity"
+            android:label="@string/title_activity_work_order_detail_tabbed" >
+        </activity>
     </application>
 
 </manifest>

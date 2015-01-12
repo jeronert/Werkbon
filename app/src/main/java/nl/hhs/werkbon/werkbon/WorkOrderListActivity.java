@@ -26,7 +26,7 @@ import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 public class WorkOrderListActivity extends ActionBarActivity {
 
-    private static String userID = "";
+    public static String USER_ID = "";
     private static Firebase fireBase;
     ArrayList<WorkOrder> workOrders = new ArrayList<WorkOrder>();
     WorkOrderAdapter adapter;
@@ -39,10 +39,10 @@ public class WorkOrderListActivity extends ActionBarActivity {
 
         Intent intent = getIntent();
 
-        this.userID   = intent.getStringExtra(LoginActivity.USER_ID);
-        this.fireBase = new Firebase(LoginActivity.FIREBASE_URL + "users/" + this.userID + "/workorders");
+        USER_ID   = intent.getStringExtra(LoginActivity.USER_ID);
+        this.fireBase = new Firebase(LoginActivity.FIREBASE_URL + "users/" + USER_ID + "/workorders");
 
-        System.out.println(LoginActivity.FIREBASE_URL + "users/" + this.userID + "/workorders");
+        System.out.println(LoginActivity.FIREBASE_URL + "users/" + USER_ID + "/workorders");
 
         setContentView(R.layout.activity_work_order_list);
 
@@ -75,30 +75,18 @@ public class WorkOrderListActivity extends ActionBarActivity {
     }
 
     protected void openWorkOrderDetail(WorkOrder workOrder) {
-        Intent workOrderDetail = new Intent(this, WorkOrderDetailActivity.class);
+        Intent workOrderDetail = new Intent(this, WorkOrderDetailTabbedActivity.class);
 
         workOrderDetail.putExtra("WorkOrder", workOrder);
-        startActivity(workOrderDetail);
+        workOrderDetail.putExtra("USER_ID", USER_ID);
+
+        startActivityForResult(workOrderDetail, 1);
     }
 
     public void fillListView() {
         listView = (ListView) findViewById(R.id.listView);
         inputSearch = (EditText) findViewById(R.id.inputSearch);
 
-        String[] values = new String[workOrders.size()];
-
-        // FireBase Data
-//        int i = 0;
-//        for(WorkOrder w : workOrders){
-//            values[i] = w.getCustomer().getInitials() + " " + w.getCustomer().getLastName() + "\n" + w.getCustomer().getAddress() + " " + w.getCustomer().getHouseNumber() + " " + w.getCustomer().getZipcode() + " " + w.getCustomer().getCity();
-//            i++;
-//        }
-
-        // Define a new Adapter
-        // First parameter - Context
-        // Second parameter - Layout for the row
-        // Third parameter - ID of the TextView to which the data is written
-        // Forth - the Array of data
         this.adapter = new WorkOrderAdapter(this, workOrders);
 
         // Assign adapter to ListView
@@ -143,6 +131,20 @@ public class WorkOrderListActivity extends ActionBarActivity {
             @Override
             public void afterTextChanged(Editable arg0) {}
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == RESULT_OK){
+                USER_ID = data.getStringExtra("USER_ID");
+
+                // TODO CHECK THIS
+                System.out.println("FOUND USER ID:" + USER_ID);
+
+            }
+        }
     }
 
     @Override

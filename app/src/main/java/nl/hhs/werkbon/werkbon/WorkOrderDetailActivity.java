@@ -12,23 +12,38 @@ import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 public class WorkOrderDetailActivity extends ActionBarActivity {
 
+    public static String USER_ID = "";
+    public WorkOrder workOrder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_order_detail);
 
         // Retrieve workOrder from WorkOrderList activity
-        WorkOrder workOrder = (WorkOrder) getIntent().getSerializableExtra("WorkOrder");
+        this.workOrder = (WorkOrder) getIntent().getSerializableExtra("WorkOrder");
+
+        // Retrieve USER_ID
+        USER_ID   = getIntent().getStringExtra(LoginActivity.USER_ID);
 
         System.out.println(workOrder.toString());
     }
 
     public void openWorkOrderList(View view){
-        Intent workOrderList = new Intent(this, WorkOrderListActivity.class);
+        Intent intent     = new Intent(this, WorkOrderListActivity.class);
 
-        startActivity(workOrderList);
+        // Pass PhoneNumber Object to Intent
+        intent.putExtra("USER_ID", USER_ID);
+
+        Intent returnIntent = new Intent();
+        returnIntent.putExtra("USER_ID", USER_ID);
+        setResult(RESULT_OK, returnIntent);
+        finish();
     }
 
+    public WorkOrder getWorkOrder() {
+        return this.workOrder;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
