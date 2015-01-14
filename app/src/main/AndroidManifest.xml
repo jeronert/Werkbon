@@ -30,6 +30,10 @@
             android:name=".WorkOrderDetailTabbedActivity"
             android:label="@string/title_activity_work_order_detail_tabbed" >
         </activity>
+        <activity
+            android:name=".StagingTabbedActivity"
+            android:label="@string/title_activity_staging" >
+        </activity>
     </application>
 
 </manifest>
