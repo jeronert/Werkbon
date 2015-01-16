@@ -10,5 +10,18 @@
     <string name="title_section1">Section 1</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
+    <string name="title_activity_staging">StagingActivity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="materials_array">
+        <item>AC Kabel</item>
+        <item>Automaat / zekering</item>
+        <item>Beugels</item>
+        <item>Dakhaken</item>
+        <item>DC Kabel</item>
+        <item>Installatiekastje</item>
+        <item>Kabelgoot</item>
+        <item>Meterkast</item>
+    </string-array>
 
 </resources>

@@ -19,6 +19,8 @@ public class StagingTabbedActivity extends FragmentActivity {
         viewPager = (ViewPager) findViewById(R.id.pager);
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager.setAdapter(new MyAdapter(fragmentManager));
+
+
     }
 
     class MyAdapter extends FragmentStatePagerAdapter {
@@ -26,7 +28,7 @@ public class StagingTabbedActivity extends FragmentActivity {
         String[] tabTitles = {
                 "Finish",
                 "Safety",
-                "Used Materials",
+                "Used Material",
                 "Summary"};
 
         public MyAdapter(FragmentManager fm) {
@@ -40,10 +42,10 @@ public class StagingTabbedActivity extends FragmentActivity {
 
             switch (i) {
                 case 0:
-                    fragment = new CompletionTab();
+                    fragment = new FinishTab();
                     break;
                 case 1:
-                    fragment = new FinishTab();
+                    fragment = new SafetyTab();
                     break;
                 case 2:
                     fragment = new UsedMaterialTab();
