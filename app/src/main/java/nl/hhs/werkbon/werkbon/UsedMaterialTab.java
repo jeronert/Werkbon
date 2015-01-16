@@ -1,6 +1,7 @@
 package nl.hhs.werkbon.werkbon;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import nl.hhs.werkbon.werkbon.Models.Material;
 
 
 /**
@@ -30,6 +39,11 @@ public class UsedMaterialTab extends Fragment {
     private String mParam2;
 
     private Spinner spinnerMaterial;
+    private EditText materialType;
+    private EditText materialNumber;
+    private Button btnAdd;
+    private ListView listViewMaterial;
+    private ArrayList<Material> usedMaterial;  
 
     private OnFragmentInteractionListener mListener;
 
@@ -69,10 +83,39 @@ public class UsedMaterialTab extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_used_material_tab, container, false);
 
+        usedMaterial = new ArrayList<>();
+
         spinnerMaterial = (Spinner) v.findViewById(R.id.spinnerMaterial);
+        materialType = (EditText) v.findViewById(R.id.editTextMaterialType);
+        materialNumber = (EditText) v.findViewById(R.id.editTextMaterialNumber);
+        btnAdd = (Button) v.findViewById(R.id.buttonAddMaterial);
+        listViewMaterial = (ListView) v.findViewById(R.id.listViewMaterials);
+
+        // Populate spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity().getBaseContext(),
                 R.array.materials_array, android.R.layout.simple_spinner_item);
         spinnerMaterial.setAdapter(adapter);
+
+        // Populate listview
+        final ArrayAdapter<Material> materialAdapteradapter = new ArrayAdapter<Material>(
+                getActivity(),
+                android.R.layout.simple_list_item_1,
+                usedMaterial );
+
+        listViewMaterial.setAdapter(materialAdapteradapter);
+
+        // Add item to used material list
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                usedMaterial.add(new Material(
+                        spinnerMaterial.getSelectedItem().toString(),
+                        materialType.getText().toString(),
+                        materialNumber.getText().toString()));
+
+                materialAdapteradapter.notifyDataSetChanged();
+            }
+        });
 
         return v;
     }
@@ -109,5 +152,7 @@ public class UsedMaterialTab extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
+
+
 
 }
