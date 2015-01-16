@@ -1,9 +1,366 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="nl.hhs.werkbon.werkbon.SummaryTab">
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="0dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="Klantgegevens, opsomming" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="0dp">
 
-</FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/headerCustomerInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#004841"
+            android:gravity="center"
+            android:layout_marginTop="0dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Klantgegevens"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:id="@+id/textViewHeaderCustomerInfo" />
+        </RelativeLayout>
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Naam klant"
+                    android:id="@+id/textView1"
+                    android:layout_weight="0.50"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:textStyle="bold"
+                    android:width="0dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.50"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="___"
+                    android:id="@+id/textViewCustomerName"
+                    android:width="0dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Installatieadres"
+                    android:layout_weight="0.50"
+                    android:id="@+id/textView2"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:textStyle="bold"
+                    android:width="0dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.50"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="___"
+                    android:id="@+id/textViewInstallAddress"
+                    android:width="0dp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Contactgegevens klant"
+                    android:id="@+id/textView3"
+                    android:layout_weight="0.50"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:textStyle="bold"
+                    android:width="0dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.50"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="___"
+                    android:id="@+id/textViewCustomerInfo"
+                    android:width="0dp" />
+            </TableRow>
+
+        </TableLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/headerSummary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#004841"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Volledig opgeleverd"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:id="@+id/textViewSummary" />
+        </RelativeLayout>
+
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Installatiedatum"
+                    android:id="@+id/textView4"
+                    android:layout_weight="0.50"
+                    android:gravity="right"
+                    android:layout_marginRight="10dp"
+                    android:textStyle="bold"
+                    android:width="0dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.50"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="___"
+                    android:id="@+id/textViewInstallDate"
+                    android:width="0dp" />
+            </TableRow>
+
+        </TableLayout>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Installatiewerk naar tevredenheid opgeleverd?"
+            android:id="@+id/checkBoxSatisfactoryInstall"
+            android:checked="false"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:clickable="false"
+            android:enabled="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zijn de kabels opgebonden en weggewerkt?"
+            android:id="@+id/checkBoxCableConcealed"
+            android:checked="false"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:clickable="false"
+            android:enabled="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kabeldoorvoeren met kit afgewerkt?"
+            android:id="@+id/checkBoxCableBushingSealed"
+            android:checked="false"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:clickable="false"
+            android:enabled="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kabeltrace (AC/DC) vooraf met de klant besproken?"
+            android:id="@+id/checkBoxCableTrace"
+            android:checked="false"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:clickable="false"
+            android:enabled="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Afval meegenomen en schoongemaakt?"
+            android:id="@+id/checkBoxCleanUp"
+            android:checked="false"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:clickable="false"
+            android:enabled="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ladder / steiger"
+            android:id="@+id/checkBoxLadder"
+            android:checked="false"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:clickable="false"
+            android:enabled="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Knikarm / hoogwerker"
+            android:id="@+id/checkBoxCherryPicker"
+            android:checked="false"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:clickable="false"
+            android:enabled="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ladderlift"
+            android:id="@+id/checkBoxShingleLift"
+            android:checked="false"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:clickable="false"
+            android:enabled="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RSS"
+            android:id="@+id/checkBoxRSS"
+            android:checked="false"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:clickable="false"
+            android:enabled="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Raamanker"
+            android:id="@+id/checkBoxWindowAnchor"
+            android:checked="false"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:clickable="false"
+            android:enabled="true" />
+
+        <RelativeLayout
+            android:id="@+id/headerMaterial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#004841"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginBottom="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Materiaal"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:id="@+id/textView5" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="___"
+            android:id="@+id/textViewMaterial"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <RelativeLayout
+            android:id="@+id/headerAgreement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#004841"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:layout_marginBottom="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Akkoord"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:id="@+id/textViewAgreement" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ik ga akkoord"
+                android:id="@+id/checkBoxAgree"
+                android:layout_alignParentTop="true"
+                android:checked="false"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verstuur"
+                android:id="@+id/buttonSend"
+                android:layout_marginLeft="176dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>
