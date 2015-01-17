@@ -7,7 +7,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import nl.hhs.werkbon.werkbon.Models.WorkOrder;
+
 public class StagingTabbedActivity extends FragmentActivity {
+
+    public static String USER_ID = "";
+    public WorkOrder workOrder;
 
     ViewPager viewPager = null;
 
@@ -15,6 +20,14 @@ public class StagingTabbedActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staging);
+
+        // Retrieve workOrder from WorkOrderList activity
+        this.workOrder = (WorkOrder) getIntent().getSerializableExtra("WorkOrder");
+
+        System.out.println(this.workOrder);
+
+        // Retrieve USER_ID
+        USER_ID   = getIntent().getStringExtra(LoginActivity.USER_ID);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         FragmentManager fragmentManager = getSupportFragmentManager();

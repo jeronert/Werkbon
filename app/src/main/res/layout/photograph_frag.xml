@@ -67,8 +67,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/imageView"
                 android:layout_marginTop="100dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/common_ic_googleplayservices" />
+                android:layout_centerHorizontal="true" />
 
             </RelativeLayout>
 
