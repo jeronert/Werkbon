@@ -21,7 +21,9 @@ public class ExtraWorkTab extends Fragment {
         View extraWork      = inflater.inflate(R.layout.extra_work_frag, container, false);
         WorkOrder workOrder = (WorkOrder) getActivity().getIntent().getSerializableExtra("WorkOrder");
 
-//        ((TextView) extraWork.findViewById(R.id.capacityText)).setText(workOrder.getExtraWork().);
+        ((TextView) extraWork.findViewById(R.id.typeText)).setText(workOrder.getExtraWork().get(0).getType());
+        ((TextView) extraWork.findViewById(R.id.amountText)).setText(workOrder.getExtraWork().get(0).getQuantity());
+        ((TextView) extraWork.findViewById(R.id.descriptionText)).setText(workOrder.getExtraWork().get(0).getDescription());
 
         return extraWork;
     }

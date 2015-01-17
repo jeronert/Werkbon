@@ -146,7 +146,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/typeText2"
+                    android:id="@+id/typeTextTwo"
                     android:layout_toRightOf="@id/type2"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true" />
@@ -216,7 +216,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/typeText3"
+                    android:id="@+id/typeTextThree"
                     android:layout_toRightOf="@id/type3"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true" />
@@ -268,7 +268,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/typeText4"
+                    android:id="@+id/typeTextFour"
                     android:layout_toRightOf="@id/type4"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true" />
@@ -426,7 +426,7 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="1040dp"
+                android:layout_marginTop="1020dp"
                 android:padding="25dp">
 
                 <TextView

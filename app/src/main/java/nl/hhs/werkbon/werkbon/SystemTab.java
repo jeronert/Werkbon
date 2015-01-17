@@ -18,7 +18,7 @@ public class SystemTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View system         = inflater.inflate(R.layout.extra_work_frag, container, false);
+        View system         = inflater.inflate(R.layout.system_frag, container, false);
         WorkOrder workOrder = (WorkOrder) getActivity().getIntent().getSerializableExtra("WorkOrder");
 
         ((TextView) system.findViewById(R.id.capacityText)).setText(workOrder.getSystem().getCapacity());
@@ -28,15 +28,15 @@ public class SystemTab extends Fragment {
         ((TextView) system.findViewById(R.id.amountText)).setText(workOrder.getSystem().getConverters().get(0).getQuantity());
 
         if(workOrder.getSystem().getConverters().get(1) != null) {
-            ((TextView) system.findViewById(R.id.typeText2)).setText(workOrder.getSystem().getConverters().get(1).getType());
+            ((TextView) system.findViewById(R.id.typeTextTwo)).setText(workOrder.getSystem().getConverters().get(1).getType());
             ((TextView) system.findViewById(R.id.amountText2)).setText(workOrder.getSystem().getConverters().get(1).getQuantity());
         }
 
-        ((TextView) system.findViewById(R.id.typeText3)).setText(workOrder.getSystem().getModules().get(0).getType());
+        ((TextView) system.findViewById(R.id.typeTextThree)).setText(workOrder.getSystem().getModules().get(0).getType());
         ((TextView) system.findViewById(R.id.amountText3)).setText(workOrder.getSystem().getModules().get(0).getQuantity());
 
         if(workOrder.getSystem().getModules().get(1) != null) {
-            ((TextView) system.findViewById(R.id.typeText4)).setText(workOrder.getSystem().getModules().get(1).getType());
+            ((TextView) system.findViewById(R.id.typeTextFour)).setText(workOrder.getSystem().getModules().get(1).getType());
             ((TextView) system.findViewById(R.id.amountText4)).setText(workOrder.getSystem().getModules().get(1).getQuantity());
         }
         // END list

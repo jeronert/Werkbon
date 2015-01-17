@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CONNECTION DATA"
+            android:text="EXTRA WORK"
             android:textColor="#fff"
             android:textSize="20sp" />
     </RelativeLayout>
@@ -35,50 +35,6 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:padding="25dp">
-
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:text="Capacity"
-                    android:id="@+id/capacity"
-                    android:gravity="center_vertical|start|end"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentStart="true" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/capacityText"
-                    android:layout_toRightOf="@id/capacity"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentEnd="true" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/header2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#004841"
-                android:gravity="center"
-                android:layout_marginTop="100dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="INSTALLATION CONVERTER"
-                    android:textColor="#fff"
-                    android:textSize="20sp" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginTop="160dp"
                 android:padding="25dp">
 
                 <TextView
@@ -104,14 +60,14 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="200dp"
+                android:layout_marginTop="40dp"
                 android:padding="25dp">
 
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="Amount"
+                    android:text="Aantal"
                     android:id="@+id/amount"
                     android:gravity="center_vertical|start|end"
                     android:layout_centerVertical="true"
@@ -122,6 +78,111 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/amountText"
                     android:layout_toRightOf="@id/amount"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="80dp"
+                android:padding="25dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Description"
+                    android:id="@+id/description"
+                    android:gravity="center_vertical|start|end"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/descriptionText"
+                    android:layout_toRightOf="@id/description"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="160dp"
+                android:padding="25dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Type"
+                    android:id="@+id/type1"
+                    android:gravity="center_vertical|start|end"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/typeText1"
+                    android:layout_toRightOf="@id/type1"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="200dp"
+                android:padding="25dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Aantal"
+                    android:id="@+id/amount1"
+                    android:gravity="center_vertical|start|end"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/amountText1"
+                    android:layout_toRightOf="@id/amount1"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="240dp"
+                android:padding="25dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Description"
+                    android:id="@+id/description1"
+                    android:gravity="center_vertical|start|end"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/descriptionText1"
+                    android:layout_toRightOf="@id/description1"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true" />
 
