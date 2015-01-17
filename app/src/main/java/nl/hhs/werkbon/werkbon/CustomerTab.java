@@ -22,16 +22,32 @@ public class CustomerTab extends Fragment {
         WorkOrder workOrder = (WorkOrder) getActivity().getIntent().getSerializableExtra("WorkOrder");
 
         ((TextView) customer.findViewById(R.id.sexText)).setText(workOrder.getCustomer().getSex());
+        ((TextView) customer.findViewById(R.id.sexText)).setFocusable(false);
+
         ((TextView) customer.findViewById(R.id.prefixText)).setText(workOrder.getCustomer().getInitials());
+        ((TextView) customer.findViewById(R.id.prefixText)).setFocusable(false);
+
         ((TextView) customer.findViewById(R.id.lastnameText)).setText(workOrder.getCustomer().getLastName());
+        ((TextView) customer.findViewById(R.id.lastnameText)).setFocusable(false);
+
         ((TextView) customer.findViewById(R.id.phoneText)).setText(workOrder.getCustomer().getPhones().get(0).getNumber());
+        ((TextView) customer.findViewById(R.id.phoneText)).setFocusable(false);
 
         // Addresss
         ((TextView) customer.findViewById(R.id.streetText)).setText(workOrder.getCustomer().getAddress());
+        ((TextView) customer.findViewById(R.id.streetText)).setFocusable(false);
+
         ((TextView) customer.findViewById(R.id.housenumberText)).setText(workOrder.getCustomer().getHouseNumber());
+        ((TextView) customer.findViewById(R.id.housenumberText)).setFocusable(false);
+
         ((TextView) customer.findViewById(R.id.zipcodeText)).setText(workOrder.getCustomer().getZipcode());
+        ((TextView) customer.findViewById(R.id.zipcodeText)).setFocusable(false);
+
         ((TextView) customer.findViewById(R.id.cityText)).setText(workOrder.getCustomer().getCity());
+        ((TextView) customer.findViewById(R.id.cityText)).setFocusable(false);;
+
         ((TextView) customer.findViewById(R.id.emailText)).setText(workOrder.getCustomer().getEmail());
+        ((TextView) customer.findViewById(R.id.emailText)).setFocusable(false);
 
         return customer;
     }
