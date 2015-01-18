@@ -42,7 +42,7 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
        this.workOrder = (WorkOrder) getIntent().getSerializableExtra("WorkOrder");
 
         // Retrieve USER_ID
-        USER_ID   = getIntent().getStringExtra(LoginActivity.USER_ID);
+        USER_ID   = getIntent().getStringExtra("USER_ID");
 
         tabHost = (MaterialTabHost) this.findViewById(R.id.materialTabHost);
         pager = (ViewPager) this.findViewById(R.id.pager);

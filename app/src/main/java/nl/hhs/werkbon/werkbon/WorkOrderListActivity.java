@@ -39,7 +39,7 @@ public class WorkOrderListActivity extends ActionBarActivity {
 
         Intent intent = getIntent();
 
-        USER_ID   = intent.getStringExtra(LoginActivity.USER_ID);
+        USER_ID   = intent.getStringExtra("USER_ID");
         this.fireBase = new Firebase(LoginActivity.FIREBASE_URL + "users/" + USER_ID + "/workorders");
 
         System.out.println(LoginActivity.FIREBASE_URL + "users/" + USER_ID + "/workorders");

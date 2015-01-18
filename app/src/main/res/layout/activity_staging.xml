@@ -10,8 +10,6 @@
         android:id="@+id/titleStrip"
         android:layout_gravity="top"
         android:background="#009688"
-        android:backgroundTint="#00e5ce"
-        android:backgroundTintMode="src_over"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"/>
 

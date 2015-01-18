@@ -7,14 +7,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.firebase.client.Firebase;
+
 import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 public class StagingTabbedActivity extends FragmentActivity {
 
     public static String USER_ID = "";
-    public WorkOrder workOrder;
+    private WorkOrder workOrder;
 
     ViewPager viewPager = null;
+    private Firebase fireBase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +30,15 @@ public class StagingTabbedActivity extends FragmentActivity {
         System.out.println(this.workOrder);
 
         // Retrieve USER_ID
-        USER_ID   = getIntent().getStringExtra(LoginActivity.USER_ID);
+        USER_ID   = getIntent().getStringExtra("USER_ID");
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager.setAdapter(new MyAdapter(fragmentManager));
 
+        // Setup firebase to reference the current work order
+        fireBase = new Firebase(LoginActivity.FIREBASE_URL + "users/" + USER_ID + "/workorders/" + workOrder.getId());
+        fireBase.setAndroidContext(this);
 
     }
 
@@ -83,4 +89,11 @@ public class StagingTabbedActivity extends FragmentActivity {
 
     }
 
+    public WorkOrder getWorkOrder() {
+        return workOrder;
+    }
+
+    public Firebase getFireBase() {
+        return fireBase;
+    }
 }

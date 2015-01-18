@@ -7,6 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 
 /**
@@ -26,6 +34,12 @@ public class SummaryTab extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView customerName, installAddress, customerInfo;
+    private Button btnSend;
+    private CheckBox chkBoxAgree;
+
+    private WorkOrder workOrder;
 
     private OnFragmentInteractionListener mListener;
 
@@ -64,7 +78,28 @@ public class SummaryTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_summary_tab, container, false);
+        View v = inflater.inflate(R.layout.fragment_summary_tab, container, false);
+
+        customerName = (TextView) v.findViewById(R.id.textViewCustomerName);
+        installAddress = (TextView) v.findViewById(R.id.textViewInstallAddress);
+        customerInfo = (TextView) v.findViewById(R.id.textViewCustomerInfo);
+        btnSend = (Button) v.findViewById(R.id.buttonSend);
+        chkBoxAgree = (CheckBox) v.findViewById(R.id.checkBoxAgree);
+
+        // Populate the fields
+        customerName.setText(workOrder.getCustomer().getLastName());
+        installAddress.setText(workOrder.getCustomer().getAddress());
+        customerInfo.setText(workOrder.getCustomer().getEmail());
+
+
+        chkBoxAgree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                btnSend.setEnabled(isChecked);
+            }
+        });
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -77,6 +112,7 @@ public class SummaryTab extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        workOrder = ((StagingTabbedActivity) activity).getWorkOrder();
     }
 
     @Override
