@@ -9,13 +9,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class FinishTab extends Fragment {
+import nl.hhs.werkbon.werkbon.Models.WorkOrder;
+
+public class FinishTab extends Fragment implements IStagingTab {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -26,6 +29,16 @@ public class FinishTab extends Fragment {
     private String mParam2;
 
     private EditText dateField;
+    private EditText    commentSatisfactoryInstall,
+                        commentCableConcealed,
+                        commentCableBushingSealed,
+                        commentCableTrace,
+                        commentCleanUp;
+    private CheckBox    chkSatisfactoryInstall,
+                        chkCableConcealed,
+                        chkCableBushingSealed,
+                        chkCableTrace,
+                        chkCleanUp;
 
     private OnFragmentInteractionListener mListener;
 
@@ -68,9 +81,21 @@ public class FinishTab extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_finish_tab, container, false);
 
-
         dateField = (EditText) v.findViewById(R.id.editTextDateOfInstall);
+        commentSatisfactoryInstall = (EditText) v.findViewById(R.id.editTextSatisfactoryInstall);
+        commentCableConcealed = (EditText) v.findViewById(R.id.editTextCableConcealed);
+        commentCableBushingSealed = (EditText) v.findViewById(R.id.editTextCableBushingSealed);
+        commentCableTrace = (EditText) v.findViewById(R.id.editTextCableTrace);
+        commentCleanUp = (EditText) v.findViewById(R.id.editTextCleanUp);
 
+        chkSatisfactoryInstall = (CheckBox) v.findViewById(R.id.checkBoxSatisfactoryInstall);
+        chkCableConcealed = (CheckBox) v.findViewById(R.id.checkBoxCableConcealed);
+        chkCableBushingSealed = (CheckBox) v.findViewById(R.id.checkBoxCableBushingSealed);
+        chkCableTrace = (CheckBox) v.findViewById(R.id.checkBoxCableTrace);
+        chkCleanUp = (CheckBox) v.findViewById(R.id.checkBoxCleanUp);
+
+
+        /* Date picker dialog */
         dateField.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +115,8 @@ public class FinishTab extends Fragment {
                 datePickerDialog.show();
             }
         });
+
+        updateFields();
 
         return v;
     }
@@ -112,6 +139,13 @@ public class FinishTab extends Fragment {
         super.onDetach();
     }
 
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        updateWorkOrder();
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -131,8 +165,68 @@ public class FinishTab extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
+    }
 
+    @Override
+    public void updateFields()
+    {
+        WorkOrder workOrder = (WorkOrder) getActivity().getIntent().getSerializableExtra("WorkOrder");
 
+        if (workOrder != null)
+        {
+            dateField.setText(workOrder.getInstallDate());
+
+            commentSatisfactoryInstall.setText(workOrder.getFinish().get("satisfactoryInstall").getComment());
+            chkSatisfactoryInstall.setChecked(workOrder.getFinish().get("satisfactoryInstall").isChecked());
+
+            commentCableConcealed.setText(workOrder.getFinish().get("cableConcealed").getComment());
+            chkCableConcealed.setChecked(workOrder.getFinish().get("cableConcealed").isChecked());
+
+            commentCableBushingSealed.setText(workOrder.getFinish().get("cableBushingSealed").getComment());
+            chkCableBushingSealed.setChecked(workOrder.getFinish().get("cableBushingSealed").isChecked());
+
+            commentCableTrace.setText(workOrder.getFinish().get("cableTrace").getComment());
+            chkCableTrace.setChecked(workOrder.getFinish().get("cableTrace").isChecked());
+
+            commentCleanUp.setText(workOrder.getFinish().get("cleanedUp").getComment());
+            chkCleanUp.setChecked(workOrder.getFinish().get("cleanedUp").isChecked());
+        }
+    }
+
+    @Override
+    public void updateWorkOrder()
+    {
+        WorkOrder workOrder = (WorkOrder) getActivity().getIntent().getSerializableExtra("WorkOrder");
+
+        if (workOrder != null)
+        {
+            workOrder.setInstallDate(dateField.getText().toString());
+
+            workOrder.getFinish().get("satisfactoryInstall").
+                    setComment(commentSatisfactoryInstall.getText().toString());
+            workOrder.getFinish().get("satisfactoryInstall").
+                    setChecked(chkSatisfactoryInstall.isChecked());
+
+            workOrder.getFinish().get("cableConcealed").
+                    setComment(commentCableConcealed.getText().toString());
+            workOrder.getFinish().get("cableConcealed").
+                    setChecked(chkCableConcealed.isChecked());
+
+            workOrder.getFinish().get("cableBushingSealed").
+                    setComment(commentCableBushingSealed.getText().toString());
+            workOrder.getFinish().get("cableBushingSealed").
+                    setChecked(chkCableBushingSealed.isChecked());
+
+            workOrder.getFinish().get("cableTrace").
+                    setComment(commentCableTrace.getText().toString());
+            workOrder.getFinish().get("cableTrace").
+                    setChecked(chkCableTrace.isChecked());
+
+            workOrder.getFinish().get("cleanedUp").
+                    setComment(commentCleanUp.getText().toString());
+            workOrder.getFinish().get("cleanedUp").
+                    setChecked(chkCleanUp.isChecked());
+        }
     }
 
 }

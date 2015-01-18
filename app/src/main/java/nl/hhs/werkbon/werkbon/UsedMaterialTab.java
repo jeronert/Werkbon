@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nl.hhs.werkbon.werkbon.Models.Material;
+import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 
 /**
@@ -28,7 +29,7 @@ import nl.hhs.werkbon.werkbon.Models.Material;
  * Use the {@link UsedMaterialTab#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class UsedMaterialTab extends Fragment {
+public class UsedMaterialTab extends Fragment implements IStagingTab {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -43,7 +44,9 @@ public class UsedMaterialTab extends Fragment {
     private EditText materialNumber;
     private Button btnAdd;
     private ListView listViewMaterial;
-    private ArrayList<Material> usedMaterial;  
+    private ArrayList<Material> usedMaterial;
+
+    ArrayAdapter<Material> materialAdapter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -96,14 +99,6 @@ public class UsedMaterialTab extends Fragment {
                 R.array.materials_array, android.R.layout.simple_spinner_item);
         spinnerMaterial.setAdapter(adapter);
 
-        // Populate listview
-        final ArrayAdapter<Material> materialAdapteradapter = new ArrayAdapter<Material>(
-                getActivity(),
-                android.R.layout.simple_list_item_1,
-                usedMaterial );
-
-        listViewMaterial.setAdapter(materialAdapteradapter);
-
         // Add item to used material list
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,9 +108,11 @@ public class UsedMaterialTab extends Fragment {
                         materialType.getText().toString(),
                         materialNumber.getText().toString()));
 
-                materialAdapteradapter.notifyDataSetChanged();
+                materialAdapter.notifyDataSetChanged();
             }
         });
+
+        updateFields();
 
         return v;
     }
@@ -137,6 +134,26 @@ public class UsedMaterialTab extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
+    @Override
+    public void updateFields() {
+        WorkOrder workOrder = (WorkOrder) getActivity().getIntent().getSerializableExtra("WorkOrder");
+
+        if (workOrder != null)
+        {
+            usedMaterial = workOrder.getUsedMaterial();
+            // Populate listview
+            materialAdapter = new ArrayAdapter<Material>(
+                getActivity(),
+                android.R.layout.simple_list_item_1,
+                usedMaterial);
+
+            listViewMaterial.setAdapter(materialAdapter);
+        }
+    }
+
+    @Override
+    public void updateWorkOrder() { }
 
     /**
      * This interface must be implemented by activities that contain this

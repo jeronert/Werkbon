@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import nl.hhs.werkbon.werkbon.Models.Material;
 import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 
@@ -25,7 +26,7 @@ import nl.hhs.werkbon.werkbon.Models.WorkOrder;
  * Use the {@link SummaryTab#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SummaryTab extends Fragment {
+public class SummaryTab extends Fragment implements IStagingTab {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -35,11 +36,24 @@ public class SummaryTab extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private TextView customerName, installAddress, customerInfo;
+    private TextView    customerName,
+                        installAddress,
+                        customerInfo,
+                        installDate,
+                        material;
     private Button btnSend;
     private CheckBox chkBoxAgree;
 
-    private WorkOrder workOrder;
+    private CheckBox    chkSatisfactoryInstall,
+                        chkCableConcealed,
+                        chkCableBushingSealed,
+                        chkCableTrace,
+                        chkCleanUp,
+                        chkLadder,
+                        chkCherryPicker,
+                        chkShingleLift,
+                        chkRSS,
+                        chkWindowAnchor;
 
     private OnFragmentInteractionListener mListener;
 
@@ -83,14 +97,21 @@ public class SummaryTab extends Fragment {
         customerName = (TextView) v.findViewById(R.id.textViewCustomerName);
         installAddress = (TextView) v.findViewById(R.id.textViewInstallAddress);
         customerInfo = (TextView) v.findViewById(R.id.textViewCustomerInfo);
+        installDate = (TextView) v.findViewById(R.id.textViewInstallDate);
+        material = (TextView) v.findViewById(R.id.textViewMaterial);
         btnSend = (Button) v.findViewById(R.id.buttonSend);
         chkBoxAgree = (CheckBox) v.findViewById(R.id.checkBoxAgree);
 
-        // Populate the fields
-        customerName.setText(workOrder.getCustomer().getLastName());
-        installAddress.setText(workOrder.getCustomer().getAddress());
-        customerInfo.setText(workOrder.getCustomer().getEmail());
-
+        chkSatisfactoryInstall = (CheckBox) v.findViewById(R.id.checkBoxSatisfactoryInstall);
+        chkCableConcealed = (CheckBox) v.findViewById(R.id.checkBoxCableConcealed);
+        chkCableBushingSealed = (CheckBox) v.findViewById(R.id.checkBoxCableBushingSealed);
+        chkCableTrace = (CheckBox) v.findViewById(R.id.checkBoxCableTrace);
+        chkCleanUp = (CheckBox) v.findViewById(R.id.checkBoxCleanUp);
+        chkLadder = (CheckBox) v.findViewById(R.id.checkBoxLadder);
+        chkCherryPicker = (CheckBox) v.findViewById(R.id.checkBoxCherryPicker);
+        chkShingleLift = (CheckBox) v.findViewById(R.id.checkBoxShingleLift);
+        chkRSS = (CheckBox) v.findViewById(R.id.checkBoxRSS);
+        chkWindowAnchor = (CheckBox) v.findViewById(R.id.checkBoxWindowAnchor);
 
         chkBoxAgree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -98,6 +119,8 @@ public class SummaryTab extends Fragment {
                 btnSend.setEnabled(isChecked);
             }
         });
+
+        updateFields();
 
         return v;
     }
@@ -112,12 +135,55 @@ public class SummaryTab extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        workOrder = ((StagingTabbedActivity) activity).getWorkOrder();
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void updateFields() {
+        WorkOrder workOrder = (WorkOrder) getActivity().getIntent().getSerializableExtra("WorkOrder");
+
+        customerName.setText(workOrder.getCustomer().getLastName());
+        installAddress.setText(workOrder.getCustomer().getAddress());
+        customerInfo.setText(workOrder.getCustomer().getEmail());
+        installDate.setText(workOrder.getInstallDate());
+
+        chkSatisfactoryInstall.setChecked(workOrder.getFinish().get("satisfactoryInstall").isChecked());
+        chkCableConcealed.setChecked(workOrder.getFinish().get("cableConcealed").isChecked());
+        chkCableBushingSealed.setChecked(workOrder.getFinish().get("cableBushingSealed").isChecked());
+        chkCableTrace.setChecked(workOrder.getFinish().get("cableTrace").isChecked());
+        chkCleanUp.setChecked(workOrder.getFinish().get("cleanedUp").isChecked());
+        chkLadder.setChecked(workOrder.getSafety().get("ladder").isChecked());
+        chkCherryPicker.setChecked(workOrder.getSafety().get("cherryPicker").isChecked());
+        chkShingleLift.setChecked(workOrder.getSafety().get("shingleLift").isChecked());
+        chkRSS.setChecked(workOrder.getSafety().get("RSS").isChecked());
+        chkWindowAnchor.setChecked(workOrder.getSafety().get("windowAnchor").isChecked());
+
+        StringBuilder sb = new StringBuilder();
+        for(Material m : workOrder.getUsedMaterial())
+        {
+            sb.append(m);
+        }
+        material.setText(sb.toString());
+    }
+
+    @Override
+    public void updateWorkOrder() {
+
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser) {
+            //updateWorkOrder for all other fragments
+
+            updateFields();
+
+        }
     }
 
     /**

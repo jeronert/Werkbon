@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 
 import com.firebase.client.Firebase;
 
+import it.neokree.materialtabs.MaterialTab;
 import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 public class StagingTabbedActivity extends FragmentActivity {
@@ -27,18 +28,17 @@ public class StagingTabbedActivity extends FragmentActivity {
         // Retrieve workOrder from WorkOrderList activity
         this.workOrder = (WorkOrder) getIntent().getSerializableExtra("WorkOrder");
 
-        System.out.println(this.workOrder);
-
         // Retrieve USER_ID
         USER_ID   = getIntent().getStringExtra("USER_ID");
+
+        // Setup firebase to reference the current work order
+        fireBase = new Firebase(LoginActivity.FIREBASE_URL + "users/" + USER_ID + "/workorders/" + workOrder.getId());
+        fireBase.setAndroidContext(this);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager.setAdapter(new MyAdapter(fragmentManager));
 
-        // Setup firebase to reference the current work order
-        fireBase = new Firebase(LoginActivity.FIREBASE_URL + "users/" + USER_ID + "/workorders/" + workOrder.getId());
-        fireBase.setAndroidContext(this);
 
     }
 
@@ -96,4 +96,5 @@ public class StagingTabbedActivity extends FragmentActivity {
     public Firebase getFireBase() {
         return fireBase;
     }
+
 }
