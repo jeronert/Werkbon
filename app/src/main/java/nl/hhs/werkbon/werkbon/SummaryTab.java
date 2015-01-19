@@ -120,6 +120,13 @@ public class SummaryTab extends Fragment implements IStagingTab {
             }
         });
 
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((StagingTabbedActivity) getActivity()).pushWorkOrderToDatabase();
+            }
+        });
+
         updateFields();
 
         return v;
@@ -165,7 +172,7 @@ public class SummaryTab extends Fragment implements IStagingTab {
         StringBuilder sb = new StringBuilder();
         for(Material m : workOrder.getUsedMaterial())
         {
-            sb.append(m);
+            sb.append("• " + m.getName() + " - " + m.getType() + "\n");
         }
         material.setText(sb.toString());
     }
@@ -179,10 +186,7 @@ public class SummaryTab extends Fragment implements IStagingTab {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser) {
-            //updateWorkOrder for all other fragments
-
             updateFields();
-
         }
     }
 

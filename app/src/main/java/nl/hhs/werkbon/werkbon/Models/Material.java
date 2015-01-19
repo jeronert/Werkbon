@@ -35,6 +35,6 @@ public class Material implements Serializable {
     @Override
     public String toString()
     {
-        return name + "\n\t" + type + "\n\t" + number;
+        return name + " - " + type + "\n\t" + number;
     }
 }

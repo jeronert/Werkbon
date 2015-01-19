@@ -144,6 +144,9 @@ public class SafetyTab extends Fragment implements IStagingTab {
 
     @Override
     public void updateWorkOrder() {
+        if(getActivity() == null)
+            return;
+
         WorkOrder workOrder = (WorkOrder) getActivity().getIntent().getSerializableExtra("WorkOrder");
 
         if (workOrder != null)
@@ -165,6 +168,13 @@ public class SafetyTab extends Fragment implements IStagingTab {
         }
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (!isVisibleToUser) {
+            updateWorkOrder();
+        }
+    }
 
     /**
      * This interface must be implemented by activities that contain this

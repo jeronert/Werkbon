@@ -109,6 +109,12 @@ public class UsedMaterialTab extends Fragment implements IStagingTab {
                         materialNumber.getText().toString()));
 
                 materialAdapter.notifyDataSetChanged();
+
+                // Clear fields
+                materialType.getEditableText().clear();
+                materialNumber.getEditableText().clear();
+
+                materialType.requestFocus();
             }
         });
 

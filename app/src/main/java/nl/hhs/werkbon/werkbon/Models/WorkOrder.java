@@ -3,6 +3,9 @@ package nl.hhs.werkbon.werkbon.Models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,6 +26,7 @@ public class WorkOrder implements Serializable {
     private Map<String, CheckPair> finish;
     private Map<String, CheckPair> safety;
     private ArrayList<Material> usedMaterial;
+    private Boolean isCompleted;
 
     // Required default constructor for Firebase object mapping
     @SuppressWarnings("unused")
@@ -31,6 +35,7 @@ public class WorkOrder implements Serializable {
         finish = new HashMap<>();
         safety = new HashMap<>();
         usedMaterial = new ArrayList<>();
+        isCompleted = false;
 
         finish.put("satisfactoryInstall", new CheckPair(false, ""));
         finish.put("cableConcealed", new CheckPair(false, ""));
@@ -79,6 +84,10 @@ public class WorkOrder implements Serializable {
         return this.getCustomer().getInitials() + " " + this.getCustomer().getLastName() + " " + this.getCustomer().getAddress() + " " + this.getCustomer().getHouseNumber() + " " + this.getCustomer().getZipcode() + " " + this.getCustomer().getCity();
     }
 
+    public Boolean getIsCompleted() { return isCompleted; }
+
+    public void setIsCompleted(Boolean isCompleted) { this.isCompleted = isCompleted; }
+
     public String getInstallDate() {
         return installDate;
     }
@@ -111,24 +120,4 @@ public class WorkOrder implements Serializable {
         this.usedMaterial = usedMaterial;
     }
 
-    public class CheckPair implements Serializable {
-        boolean isChecked;
-        String comment;
-
-        CheckPair() {}
-
-        CheckPair(boolean isChecked, String comment)
-        {
-            this.isChecked = isChecked;
-            this.comment = comment;
-        }
-
-        public boolean isChecked() { return isChecked; }
-
-        public String getComment() { return comment; }
-
-        public void setChecked(boolean isChecked) { this.isChecked = isChecked; }
-
-        public void setComment(String comment) { this.comment = comment; }
-    }
 }

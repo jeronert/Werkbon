@@ -64,7 +64,8 @@ public class WorkOrderListActivity extends ActionBarActivity {
                     WorkOrder[] wOrder = snapshot.getValue(WorkOrder[].class);
 
                     for(WorkOrder w : wOrder){
-                        workOrders.add(w);
+                        if(!w.getIsCompleted())
+                            workOrders.add(w);
                     }
                 }
 

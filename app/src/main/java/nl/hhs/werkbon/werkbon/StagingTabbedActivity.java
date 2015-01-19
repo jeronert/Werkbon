@@ -9,7 +9,13 @@ import android.support.v4.view.ViewPager;
 
 import com.firebase.client.Firebase;
 
+import java.util.ArrayList;
+
 import it.neokree.materialtabs.MaterialTab;
+import nl.hhs.werkbon.werkbon.Models.Customer;
+import nl.hhs.werkbon.werkbon.Models.ExtraWork;
+import nl.hhs.werkbon.werkbon.Models.Phone;
+import nl.hhs.werkbon.werkbon.Models.Photograph;
 import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 public class StagingTabbedActivity extends FragmentActivity {
@@ -95,6 +101,13 @@ public class StagingTabbedActivity extends FragmentActivity {
 
     public Firebase getFireBase() {
         return fireBase;
+    }
+
+    public void pushWorkOrderToDatabase()
+    {
+        workOrder.setIsCompleted(true);
+        fireBase.setValue(workOrder);
+        this.finish();
     }
 
 }
