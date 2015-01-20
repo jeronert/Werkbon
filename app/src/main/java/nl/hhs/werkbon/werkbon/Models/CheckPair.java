@@ -1,13 +1,7 @@
 package nl.hhs.werkbon.werkbon.Models;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 
-/**
- * Created by Niels on 19/01/2015.
- */
 public class CheckPair implements Serializable {
     boolean isChecked;
     String comment;

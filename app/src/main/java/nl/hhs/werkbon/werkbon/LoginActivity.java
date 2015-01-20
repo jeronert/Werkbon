@@ -63,8 +63,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         // Init Firebase
         Firebase.setAndroidContext(this);
-
-        //blabla
         this.fireBase = new Firebase(FIREBASE_URL);
 
         setContentView(R.layout.activity_login);
@@ -125,7 +123,6 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
         // Check for a valid password, if the user entered one.
         if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            System.out.println(password);
             mPasswordView.setError(getString(R.string.error_invalid_password));
             focusView = mPasswordView;
             cancel = true;
@@ -158,12 +155,10 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     }
 
     private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
         return email.contains("@");
     }
 
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
         return password.length() > 4;
     }
 
@@ -288,10 +283,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
                 @Override
                 public void onAuthenticationError(FirebaseError firebaseError) {
                     // there was an error
-                    System.out.println(firebaseError);
                     mPasswordView.setError(getString(R.string.error_incorrect_password));
                     mPasswordView.requestFocus();
-
                 }
             });
 

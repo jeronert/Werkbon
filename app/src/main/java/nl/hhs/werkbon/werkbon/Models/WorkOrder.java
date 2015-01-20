@@ -1,19 +1,10 @@
 package nl.hhs.werkbon.werkbon.Models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by jeroner on 10/01/15.
- */
 public class WorkOrder implements Serializable {
 
     private int id;

@@ -7,11 +7,9 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-
 import it.neokree.materialtabs.MaterialTab;
 import it.neokree.materialtabs.MaterialTabHost;
 import it.neokree.materialtabs.MaterialTabListener;
-
 
 public class TextTabActivity extends ActionBarActivity implements MaterialTabListener{
 
@@ -49,9 +47,7 @@ public class TextTabActivity extends ActionBarActivity implements MaterialTabLis
                             .setText(adapter.getPageTitle(i))
                             .setTabListener(this)
             );
-
         }
-
     }
 
 
@@ -61,14 +57,10 @@ public class TextTabActivity extends ActionBarActivity implements MaterialTabLis
     }
 
     @Override
-    public void onTabReselected(MaterialTab tab) {
-
-    }
+    public void onTabReselected(MaterialTab tab) { }
 
     @Override
-    public void onTabUnselected(MaterialTab tab) {
-
-    }
+    public void onTabUnselected(MaterialTab tab) { }
 
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {
 

@@ -2,9 +2,6 @@ package nl.hhs.werkbon.werkbon.Models;
 
 import java.io.Serializable;
 
-/**
- * Created by Niels on 16/01/2015.
- */
 public class Material implements Serializable {
 
     private String name;

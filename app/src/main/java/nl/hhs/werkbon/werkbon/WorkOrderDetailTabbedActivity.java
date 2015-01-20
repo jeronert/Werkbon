@@ -9,13 +9,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 
 import it.neokree.materialtabs.MaterialTab;
@@ -61,7 +57,6 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
         pager.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                System.out.println("long click?");
                 return false;
             }
         });
@@ -92,12 +87,6 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
                         dialog.cancel();
                     }
                 });
-//        builder1.setNegativeButton("No",
-//                new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        dialog.cancel();
-//                    }
-//                });
 
         AlertDialog alert = builder1.create();
         alert.show();
@@ -160,13 +149,17 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
     }
 
     @Override
-    public void onTabReselected(MaterialTab tab) {
-
-    }
+    public void onTabReselected(MaterialTab tab) { }
 
     @Override
-    public void onTabUnselected(MaterialTab tab) {
+    public void onTabUnselected(MaterialTab tab) { }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == 1) {
+            // Workorder was completed successfully
+            this.finish();
+        }
     }
 
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {
@@ -208,7 +201,7 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return "Sezione " + position;
+            return "Page  " + position;
         }
 
     }

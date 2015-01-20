@@ -2,7 +2,6 @@ package nl.hhs.werkbon.werkbon;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +9,6 @@ import android.widget.TextView;
 
 import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
-/**
- * Created by jeroner on 12/01/15.
- */
 public class SystemTab extends Fragment {
 
     @Override
@@ -24,8 +20,6 @@ public class SystemTab extends Fragment {
         ((TextView) system.findViewById(R.id.capacityText)).setText(workOrder.getSystem().getCapacity());
         ((TextView) system.findViewById(R.id.capacityText)).setFocusable(false);
 
-
-        // TODO: this should be in some kind of list
         ((TextView) system.findViewById(R.id.typeText)).setText(workOrder.getSystem().getConverters().get(0).getType());
         ((TextView) system.findViewById(R.id.typeText)).setFocusable(false);
 
@@ -73,7 +67,6 @@ public class SystemTab extends Fragment {
 
         ((TextView) system.findViewById(R.id.tilesText)).setText(workOrder.getSystem().getTiles());
         ((TextView) system.findViewById(R.id.tilesText)).setFocusable(false);
-
 
         return system;
     }

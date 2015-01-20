@@ -1,27 +1,16 @@
 package nl.hhs.werkbon.werkbon;
 
-import android.app.Activity;
 import android.content.Context;
-import android.support.v7.internal.view.menu.MenuView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Filterable;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Filter;
-
 import java.util.ArrayList;
-
 import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
-import static android.text.method.TextKeyListener.clear;
-
-/**
- * Created by jeroner on 10/01/15.
- */
 public class WorkOrderAdapter extends BaseAdapter implements Filterable {
     private LayoutInflater mInflater;
     private ArrayList<WorkOrder> items;
@@ -81,14 +70,6 @@ public class WorkOrderAdapter extends BaseAdapter implements Filterable {
         return filter;
     }
 
-    /**
-     * Class for filtering in Arraylist listview. Objects need a valid
-     * 'toString()' method.
-     *
-     * @author Tobias Schürg inspired by Alxandr
-     *         (http://stackoverflow.com/a/2726348/570168)
-     *
-     */
     private class AppFilter<T> extends Filter {
 
         private ArrayList<T> sourceObjects;
@@ -108,20 +89,13 @@ public class WorkOrderAdapter extends BaseAdapter implements Filterable {
                 ArrayList<T> filter = new ArrayList<T>();
 
                 for (T object : sourceObjects) {
-                    // the filtering itself:
+                    // the filtering itself
                     WorkOrder workOrder = (WorkOrder) object;
                     if (workOrder.toStringForFilter().toLowerCase().contains(filterSeq))
                         filter.add(object);
-
-                    System.out.println(object.toString());
                 }
                 result.count = filter.size();
                 result.values = filter;
-
-                System.out.println(result.count);
-                System.out.println(result.values);
-
-
             } else {
                 // add all objects
                 synchronized (this) {

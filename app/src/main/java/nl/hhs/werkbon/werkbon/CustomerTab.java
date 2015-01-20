@@ -1,20 +1,14 @@
 package nl.hhs.werkbon.werkbon;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
-/**
- * Created by jeroner on 12/01/15.
- */
 public class CustomerTab extends Fragment {
 
     @Override
@@ -50,30 +44,6 @@ public class CustomerTab extends Fragment {
 
         ((TextView) customer.findViewById(R.id.emailText)).setText(workOrder.getCustomer().getEmail());
         ((TextView) customer.findViewById(R.id.emailText)).setFocusable(false);
-
-//        customer.setOnTouchListener(new View.OnTouchListener() {
-//            public boolean onTouch(View v, MotionEvent event) {
-//                System.out.println("test ontouch");
-//                System.out.println(event);
-//                return true;
-//            }
-//        });
-
-        ((ScrollView) customer.findViewById(R.id.scrollView)).setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                System.out.println("long click customer on scrollview!!!");
-                return false;
-            }
-        });
-
-        customer.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                System.out.println("long click customer!!!");
-                return false;
-            }
-        });
 
         return customer;
     }

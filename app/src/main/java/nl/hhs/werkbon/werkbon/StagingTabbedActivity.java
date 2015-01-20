@@ -6,21 +6,12 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-
 import com.firebase.client.Firebase;
-
-import java.util.ArrayList;
-
-import it.neokree.materialtabs.MaterialTab;
-import nl.hhs.werkbon.werkbon.Models.Customer;
-import nl.hhs.werkbon.werkbon.Models.ExtraWork;
-import nl.hhs.werkbon.werkbon.Models.Phone;
-import nl.hhs.werkbon.werkbon.Models.Photograph;
 import nl.hhs.werkbon.werkbon.Models.WorkOrder;
 
 public class StagingTabbedActivity extends FragmentActivity {
 
-    public static String USER_ID = "";
+    private static String USER_ID = "";
     private WorkOrder workOrder;
 
     ViewPager viewPager = null;
@@ -44,8 +35,6 @@ public class StagingTabbedActivity extends FragmentActivity {
         viewPager = (ViewPager) findViewById(R.id.pager);
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager.setAdapter(new MyAdapter(fragmentManager));
-
-
     }
 
     class MyAdapter extends FragmentStatePagerAdapter {
@@ -107,6 +96,7 @@ public class StagingTabbedActivity extends FragmentActivity {
     {
         workOrder.setIsCompleted(true);
         fireBase.setValue(workOrder);
+        this.setResult(1);
         this.finish();
     }
 
