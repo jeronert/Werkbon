@@ -18,7 +18,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PHOTO MATERIAL"
+            android:text="@string/images"
+            android:textAllCaps="true"
             android:textColor="#fff"
             android:textSize="20sp" />
     </RelativeLayout>
@@ -41,7 +42,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="Description"
+                    android:text="@string/description"
                     android:id="@+id/description"
                     android:gravity="center_vertical|start|end"
                     android:layout_centerVertical="true"

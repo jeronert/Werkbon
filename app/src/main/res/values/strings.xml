@@ -13,15 +13,84 @@
     <string name="title_activity_staging">StagingActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="searchWorkOrder">Search Work Orders</string>
+    <string name="workOrder">Work Order</string>
+    <string name="workOrderWelcomeMessage">Hi there!\n\nThis is the Work Order detail page.\nUse the top right menu to finalize this Work Order!\n\nGood Luck!</string>
+    <string name="understood">Got it</string>
+    <string name="customerInfo">Customer Info</string>
+    <string name="sex">Sex</string>
+    <string name="initials">Initials</string>
+    <string name="lastName">Surname</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="street">Street</string>
+    <string name="streetNr">Street Nr.</string>
+    <string name="postalCode">Postal Code</string>
+    <string name="city">City</string>
+    <string name="email">Email</string>
+    
+    <string name="extraWork">Extra Work</string>
+    <string name="type">Type</string>
+    <string name="amount">Amount</string>
+    <string name="description">Description</string>
+    <string name="attachments">Attachments</string>
+    <string name="images">Images</string>
+    <string name="systemInfo">System Info</string>
+    <string name="connectionData">Connection Data</string>
+    <string name="capacity">Capacity</string>
+    <string name="installConverters">Installation Converters</string>
+    <string name="modules">Modules</string>
+    <string name="extraInfo">Additional Information</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="cupboard">Cupboard</string>
+    <string name="roofAccess">Roof Access</string>
+    <string name="roofing">Roofing</string>
+    <string name="tiles">Tiles</string>
+
+    <string name="finalizeWorkOrderDialog">Would you like to finalize this Work Order?</string>
+    <string name="finalizeWorkOrderDialogConfirm">Yes, Please!</string>
+    <string name="finalizeWorkOrderCancel">No, Thanks</string>
+    <string name="comment">Comment</string>
+    <string name="dateOfInstall">Installed on</string>
+    <string name="finish">Finish</string>
+    <string name="safety">Safety</string>
+    <string name="usedMaterial">Used Material</string>
+    <string name="summary">Summary</string>
+    <string name="agreeWithSummary">I, %1$s, agree with the above</string>
+    <string name="serialNumber">Serial Number</string>
+    <string name="material">Material</string>
+    <string name="installAddress">Installation Address</string>
+    <string name="submitWorkOrder">Submit</string>
+    <string name="agreement">Agreement</string>
+    <string name="tapToEnterDate">Tap to enter date</string>
+    <string name="add">Add</string>
+    <string name="customerName">Name</string>
+    <string name="customerContactInfo">Contact Info</string>
+    <string name="fullyCompleted">Completeness</string>
+
+    <string name="satisfactoryInstall">Has the installation been satisfactory?</string>
+    <string name="cablesConcealed">Have the cables been tidied up and concealed?</string>
+    <string name="cableBushingSealed">Have the cable bushings been sealed?</string>
+    <string name="cableTrace">Informed the client regarding cable trace (AC/DC)?</string>
+    <string name="cleanedUp">Cleaned up garbage and debris?</string>
+
+    <string name="ladderScaffolding">Ladder / Scaffolding</string>
+    <string name="cherryPicker">Cherry Picker / Boom Lift</string>
+    <string name="shingleLift">Shingle Lift</string>
+    <string name="RSS">RSS</string>
+    <string name="windowAnchor">Window Anchor</string>
+
     <string-array name="materials_array">
-        <item>AC Kabel</item>
-        <item>Automaat / zekering</item>
-        <item>Beugels</item>
-        <item>Dakhaken</item>
-        <item>DC Kabel</item>
-        <item>Installatiekastje</item>
-        <item>Kabelgoot</item>
-        <item>Meterkast</item>
+        <item>AC Cable</item>
+        <item>Brackets</item>
+        <item>Cable Tray</item>
+        <item>Converter</item>
+        <item>DC Cable</item>
+        <item>Fuse</item>
+        <item>Meter Box</item>
+        <item>Module Clamps</item>
+        <item>Panels</item>
+        <item>Roof Anchor</item>
     </string-array>
 
 </resources>

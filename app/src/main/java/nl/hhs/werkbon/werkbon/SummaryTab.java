@@ -133,6 +133,12 @@ public class SummaryTab extends Fragment implements IStagingTab {
             sb.append("• " + m.getName() + " - " + m.getType() + "\n");
         }
         material.setText(sb.toString());
+
+        chkBoxAgree.setText(String.format(
+                getResources().getString(R.string.agreeWithSummary),
+                        workOrder.getCustomer().getInitials()
+                        + " "
+                        + workOrder.getCustomer().getLastName()));
     }
 
     @Override

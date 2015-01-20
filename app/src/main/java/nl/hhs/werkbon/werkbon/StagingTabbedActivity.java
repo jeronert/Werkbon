@@ -40,10 +40,10 @@ public class StagingTabbedActivity extends FragmentActivity {
     class MyAdapter extends FragmentStatePagerAdapter {
 
         String[] tabTitles = {
-                "Finish",
-                "Safety",
-                "Used Material",
-                "Summary"};
+                getResources().getString(R.string.finish),
+                getResources().getString(R.string.safety),
+                getResources().getString(R.string.usedMaterial),
+                getResources().getString(R.string.summary)};
 
         public MyAdapter(FragmentManager fm) {
             super(fm);

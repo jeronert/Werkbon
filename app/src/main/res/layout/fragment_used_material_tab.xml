@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Materiaal"
+            android:text="@string/material"
             android:id="@+id/textViewMaterial" />
 
         <Spinner
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Merk / Type"
+            android:text="@string/type"
             android:id="@+id/textViewMaterialType" />
 
         <EditText
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Serienummer"
+            android:text="@string/serialNumber"
             android:id="@+id/textViewMaterialNumber" />
 
         <EditText
@@ -52,7 +52,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add"
+            android:text="@string/add"
             android:id="@+id/buttonAddMaterial"
             android:layout_gravity="right" />
 

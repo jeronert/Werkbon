@@ -21,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="Date of installation"
+                android:text="@string/dateOfInstall"
                 android:id="@+id/textView"
                 android:gravity="center_vertical|start|end"
                 android:layout_centerVertical="true"
@@ -37,13 +37,14 @@
                 android:layout_alignParentEnd="true"
                 android:editable="false"
                 android:focusable="false"
-                android:gravity="center_horizontal" />
+                android:gravity="center_horizontal"
+                android:hint="@string/tapToEnterDate" />
         </LinearLayout>
 
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Installatiewerk naar tevredenheid opgeleverd?"
+            android:text="@string/satisfactoryInstall"
             android:id="@+id/checkBoxSatisfactoryInstall"
             android:checked="false"
             android:paddingTop="15dp"
@@ -52,7 +53,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:hint="Comment"
+            android:hint="@string/comment"
             android:layout_height="wrap_content"
             android:id="@+id/editTextSatisfactoryInstall"
             android:paddingBottom="15dp"
@@ -61,7 +62,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zijn de kabels opgebonden en weggewerkt?"
+            android:text="@string/cablesConcealed"
             android:id="@+id/checkBoxCableConcealed"
             android:checked="false"
             android:paddingTop="15dp"
@@ -70,7 +71,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:hint="Comment"
+            android:hint="@string/comment"
             android:layout_height="wrap_content"
             android:id="@+id/editTextCableConcealed"
             android:paddingBottom="15dp"
@@ -79,7 +80,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kabeldoorvoeren met kit afgewerkt?"
+            android:text="@string/cableBushingSealed"
             android:id="@+id/checkBoxCableBushingSealed"
             android:checked="false"
             android:paddingTop="15dp"
@@ -88,7 +89,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:hint="Comment"
+            android:hint="@string/comment"
             android:layout_height="wrap_content"
             android:id="@+id/editTextCableBushingSealed"
             android:paddingBottom="15dp"
@@ -97,7 +98,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kabeltrace (AC/DC) vooraf met de klant besproken?"
+            android:text="@string/cableTrace"
             android:id="@+id/checkBoxCableTrace"
             android:checked="false"
             android:paddingTop="15dp"
@@ -106,7 +107,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:hint="Comment"
+            android:hint="@string/comment"
             android:layout_height="wrap_content"
             android:id="@+id/editTextCableTrace"
             android:paddingBottom="15dp"
@@ -115,7 +116,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Afval meegenomen en schoongemaakt?"
+            android:text="@string/cleanedUp"
             android:id="@+id/checkBoxCleanUp"
             android:checked="false"
             android:paddingTop="15dp"
@@ -124,7 +125,7 @@
 
         <EditText
             android:layout_width="match_parent"
-            android:hint="Comment"
+            android:hint="@string/comment"
             android:layout_height="wrap_content"
             android:id="@+id/editTextCleanUp"
             android:paddingBottom="15dp"

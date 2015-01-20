@@ -35,7 +35,10 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
         setContentView(R.layout.activity_work_order_detail_tabbed);
 
         // Retrieve workOrder from WorkOrderList activity
-       this.workOrder = (WorkOrder) getIntent().getSerializableExtra("WorkOrder");
+        this.workOrder = (WorkOrder) getIntent().getSerializableExtra("WorkOrder");
+
+        // Set actionbar title
+        getSupportActionBar().setTitle(workOrder.getCustomer().getLastName());
 
         // Retrieve USER_ID
         USER_ID   = getIntent().getStringExtra("USER_ID");
@@ -49,7 +52,6 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
         pager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-                // when user do a swipe the selected tab change
                 tabHost.setSelectedNavigationItem(position);
             }
         });
@@ -63,10 +65,10 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
 
         // insert all tabs from pagerAdapter data
         String[] tabs = {
-            "Klantgegevens",
-            "Systeemgegevens",
-            "Meerwerk",
-            "Fotomateriaal"
+            getResources().getString(R.string.customerInfo),
+            getResources().getString(R.string.systemInfo),
+            getResources().getString(R.string.extraWork),
+            getResources().getString(R.string.attachments)
         };
 
         for (int i = 0; i < pagerAdapter.getCount(); i++) {
@@ -79,9 +81,9 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
 
         // Show info dialog
         AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-        builder1.setMessage("Hi there! \n\nThis is the Work Order detail page. \n\nUse the top right menu to finalize this Work Order! \n\nGood luck!");
+        builder1.setMessage(getResources().getString(R.string.workOrderWelcomeMessage));
         builder1.setCancelable(true);
-        builder1.setPositiveButton("Understood!",
+        builder1.setPositiveButton(getResources().getString(R.string.understood),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -95,16 +97,16 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
     public void finalizeOrder(MenuItem item) {
         // Show info dialog
         AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
-        builder2.setMessage("Want to complete this Work Order? \n\nGo ahead!");
+        builder2.setMessage(getResources().getString(R.string.finalizeWorkOrderDialog));
         builder2.setCancelable(true);
-        builder2.setPositiveButton("Complete Work Order!",
+        builder2.setPositiveButton(getResources().getString(R.string.finalizeWorkOrderDialogConfirm),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                         openStagingTabbedAcitivity();
                     }
                 });
-        builder2.setNegativeButton("Nevermind",
+        builder2.setNegativeButton(getResources().getString(R.string.finalizeWorkOrderCancel),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

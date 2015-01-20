@@ -26,7 +26,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Klantgegevens"
+                android:text="@string/customerInfo"
+                android:textAllCaps="true"
                 android:textColor="#fff"
                 android:textSize="20sp"
                 android:id="@+id/textViewHeaderCustomerInfo" />
@@ -45,7 +46,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Naam klant"
+                    android:text="@string/customerName"
                     android:id="@+id/textView1"
                     android:layout_weight="0.50"
                     android:gravity="right"
@@ -72,7 +73,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Installatieadres"
+                    android:text="@string/installAddress"
                     android:layout_weight="0.50"
                     android:id="@+id/textView2"
                     android:gravity="right"
@@ -99,7 +100,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Contactgegevens klant"
+                    android:text="@string/customerContactInfo"
                     android:id="@+id/textView3"
                     android:layout_weight="0.50"
                     android:gravity="right"
@@ -134,7 +135,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Volledig opgeleverd"
+                android:text="@string/fullyCompleted"
+                android:textAllCaps="true"
                 android:textColor="#fff"
                 android:textSize="20sp"
                 android:id="@+id/textViewSummary" />
@@ -153,7 +155,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Installatiedatum"
+                    android:text="@string/dateOfInstall"
                     android:id="@+id/textView4"
                     android:layout_weight="0.50"
                     android:gravity="right"
@@ -176,7 +178,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Installatiewerk naar tevredenheid opgeleverd?"
+            android:text="@string/satisfactoryInstall"
             android:id="@+id/checkBoxSatisfactoryInstall"
             android:checked="false"
             android:paddingBottom="0dp"
@@ -187,7 +189,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Zijn de kabels opgebonden en weggewerkt?"
+            android:text="@string/cablesConcealed"
             android:id="@+id/checkBoxCableConcealed"
             android:checked="false"
             android:paddingBottom="0dp"
@@ -198,7 +200,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kabeldoorvoeren met kit afgewerkt?"
+            android:text="@string/cableBushingSealed"
             android:id="@+id/checkBoxCableBushingSealed"
             android:checked="false"
             android:paddingBottom="0dp"
@@ -209,7 +211,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kabeltrace (AC/DC) vooraf met de klant besproken?"
+            android:text="@string/cableTrace"
             android:id="@+id/checkBoxCableTrace"
             android:checked="false"
             android:paddingBottom="0dp"
@@ -220,7 +222,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Afval meegenomen en schoongemaakt?"
+            android:text="@string/cleanedUp"
             android:id="@+id/checkBoxCleanUp"
             android:checked="false"
             android:paddingBottom="0dp"
@@ -231,7 +233,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ladder / steiger"
+            android:text="@string/ladderScaffolding"
             android:id="@+id/checkBoxLadder"
             android:checked="false"
             android:paddingBottom="0dp"
@@ -242,7 +244,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Knikarm / hoogwerker"
+            android:text="@string/cherryPicker"
             android:id="@+id/checkBoxCherryPicker"
             android:checked="false"
             android:paddingBottom="0dp"
@@ -253,7 +255,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ladderlift"
+            android:text="@string/shingleLift"
             android:id="@+id/checkBoxShingleLift"
             android:checked="false"
             android:paddingBottom="0dp"
@@ -264,7 +266,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RSS"
+            android:text="@string/RSS"
             android:id="@+id/checkBoxRSS"
             android:checked="false"
             android:paddingBottom="0dp"
@@ -275,7 +277,7 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Raamanker"
+            android:text="@string/windowAnchor"
             android:id="@+id/checkBoxWindowAnchor"
             android:checked="false"
             android:paddingBottom="0dp"
@@ -297,7 +299,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Materiaal"
+                android:text="@string/material"
+                android:textAllCaps="true"
                 android:textColor="#fff"
                 android:textSize="20sp"
                 android:id="@+id/textView5" />
@@ -326,7 +329,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Akkoord"
+                android:text="@string/agreement"
+                android:textAllCaps="true"
                 android:textColor="#fff"
                 android:textSize="20sp"
                 android:id="@+id/textViewAgreement" />
@@ -341,7 +345,7 @@
             <CheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ik ga akkoord"
+                android:text="@string/agreeWithSummary"
                 android:id="@+id/checkBoxAgree"
                 android:layout_alignParentTop="true"
                 android:checked="false"
@@ -351,7 +355,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Verstuur"
+                android:text="@string/submitWorkOrder"
                 android:id="@+id/buttonSend"
                 android:layout_marginLeft="176dp"
                 android:layout_alignParentTop="true"
