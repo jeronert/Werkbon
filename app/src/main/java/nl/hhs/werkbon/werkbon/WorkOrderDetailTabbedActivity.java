@@ -24,6 +24,7 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
 
     public static String USER_ID = "";
     public WorkOrder workOrder;
+    private static boolean messageShown = false;
 
     MaterialTabHost tabHost;
     ViewPager pager;
@@ -80,18 +81,22 @@ public class WorkOrderDetailTabbedActivity extends ActionBarActivity implements 
         }
 
         // Show info dialog
-        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
-        builder1.setMessage(getResources().getString(R.string.workOrderWelcomeMessage));
-        builder1.setCancelable(true);
-        builder1.setPositiveButton(getResources().getString(R.string.understood),
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
+        if(!messageShown)
+        {
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+            builder1.setMessage(getResources().getString(R.string.workOrderWelcomeMessage));
+            builder1.setCancelable(true);
+            builder1.setPositiveButton(getResources().getString(R.string.understood),
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
 
-        AlertDialog alert = builder1.create();
-        alert.show();
+            AlertDialog alert = builder1.create();
+            alert.show();
+            messageShown = true;
+        }
     }
 
     public void finalizeOrder(MenuItem item) {

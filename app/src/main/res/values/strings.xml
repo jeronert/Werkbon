@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Werkbon</string>
+    <string name="app_name">WorkOrder</string>
     <string name="title_activity_work_order_list">WorkOrderListActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -12,7 +12,6 @@
     <string name="title_section3">Section 3</string>
     <string name="title_activity_staging">StagingActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
     <string name="searchWorkOrder">Search Work Orders</string>
     <string name="workOrder">Work Order</string>
     <string name="workOrderWelcomeMessage">Hi there!\n\nThis is the Work Order detail page.\nUse the top right menu to finalize this Work Order!\n\nGood Luck!</string>
@@ -28,7 +27,6 @@
     <string name="postalCode">Postal Code</string>
     <string name="city">City</string>
     <string name="email">Email</string>
-    
     <string name="extraWork">Extra Work</string>
     <string name="type">Type</string>
     <string name="amount">Amount</string>
@@ -46,7 +44,6 @@
     <string name="roofAccess">Roof Access</string>
     <string name="roofing">Roofing</string>
     <string name="tiles">Tiles</string>
-
     <string name="finalizeWorkOrderDialog">Would you like to finalize this Work Order?</string>
     <string name="finalizeWorkOrderDialogConfirm">Yes, Please!</string>
     <string name="finalizeWorkOrderCancel">No, Thanks</string>
@@ -67,13 +64,11 @@
     <string name="customerName">Name</string>
     <string name="customerContactInfo">Contact Info</string>
     <string name="fullyCompleted">Completeness</string>
-
     <string name="satisfactoryInstall">Has the installation been satisfactory?</string>
     <string name="cablesConcealed">Have the cables been tidied up and concealed?</string>
     <string name="cableBushingSealed">Have the cable bushings been sealed?</string>
     <string name="cableTrace">Informed the client regarding cable trace (AC/DC)?</string>
     <string name="cleanedUp">Cleaned up garbage and debris?</string>
-
     <string name="ladderScaffolding">Ladder / Scaffolding</string>
     <string name="cherryPicker">Cherry Picker / Boom Lift</string>
     <string name="shingleLift">Shingle Lift</string>
@@ -92,5 +87,7 @@
         <item>Panels</item>
         <item>Roof Anchor</item>
     </string-array>
+
+    <string name="title_activity_zoom_image">ZoomImageActivity</string>
 
 </resources>
